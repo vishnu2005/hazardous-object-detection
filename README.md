@@ -1,51 +1,51 @@
-📁 Folder Structure
+# 🔍 Hazardous Object Detection with Multilingual Voice Output
 
+This model detects hazardous objects in an image (e.g., knife, scissors, screwdriver) using a trained YOLOv8 model and generates **voice-based warnings** in **multiple Indian languages** including:
+
+- 🇬🇧 English
+- 🇮🇳 Hindi
+- 🇮🇳 Tamil
+- 🇮🇳 Assamese (text only)
+- 🇮🇳 Bengali
+- 🇮🇳 Telugu
+- 🇮🇳 Malayalam
+
+> ✨ Built for visually impaired users to hear real-time feedback about dangerous objects in their environment.
+>
+
+## 🚀 Features
+
+- 🔍 **YOLOv8-based object detection**
+- 🗣️ **Google Translate + gTTS speech output**
+- 🛡️ Hazard level estimation via object **distance + position**
+- ✅ Modular and runs offline (except translation/TTS)
+- 👩‍🦯 Focused on accessibility for the visually impaired
+
+  ## 📁 Folder Structure
+
+```bash
 hazardous-object-detection/
 │
-├── best.pt                   # YOLOv8 trained model (custom for hazard detection)
-├── detect_and_caption.py     # Main detection + translation + TTS script
+├── best.pt                      # YOLOv8 trained weights
+├── detect_and_caption.py       # Main script
+├── test_images/                # Input images
+│   └── img2.jpg
+├── outputs/
+│   └── audio_clips/            # Translated MP3 clips
 ├── requirements.txt
-│
-├── test_images/
-│   └── img2.jpg              # Sample input images
-│
-└── outputs/
-    └── audio_clips/          # Saved audio (MP3) clips
-⚙️ Installation
+└── README.md
+```
+##🛠️ Setup & Usage
 1. Clone the repo
-bash
-Copy
-Edit
-git clone https://github.com/<your-username>/hazardous-object-detection.git
+git clone https://github.com/vishnu2005/hazardous-object-detection.git
 cd hazardous-object-detection
-2. Set up Python environment
-bash
-Copy
-Edit
+
+3. Install dependencies
 pip install -r requirements.txt
-3. Run Detection
-bash
-Copy
-Edit
+
+3. Add model weights
+Place your trained YOLOv8 model file as best.pt in the root folder.
+
+4. Run detection and TTS
 python detect_and_caption.py
-📦 Dependencies
-ultralytics
 
-opencv-python
-
-Pillow
-
-deep-translator
-
-gTTS
-
-playsound
-
-All included in requirements.txt.
-
-📌 Notes
-best.pt is the trained YOLOv8 model (~6 MB).
-
-Uses Google Translate + gTTS, so internet connection is required for translation and speech generation.
-
-Assamese TTS is not currently supported by gTTS (will be skipped with a warning).
